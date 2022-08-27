@@ -22,7 +22,7 @@ import logo from '../../imgs/dslog.png'
 
 	return (
 		<div>
-			<nav>
+			<nav className={style.nav}>
 				<img src={logo} alt="" height={100} />
 			</nav>
 			<div className={style.buttons}>
