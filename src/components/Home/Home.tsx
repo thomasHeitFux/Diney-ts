@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
   function Home() {
 	const characters = useSelector((state:StoreState)=>state.characters);
 	const dispatch = useDispatch()
-	const [num,setNum] =useState(1);
+	const [num,setNum] =useState<number>(1);
 	
 	useEffect(() => {
 		dispatch<any>(fetchUsers())
@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom';
 			{characters?characters.map((e:Character)=>{
 			
 				return(
-						<Link to={`/detail/${e._id}`}  style={{ textDecoration: 'none', color:'black'}}>
+						<Link to={`/detail/${e._id}`} key={e._id} style={{ textDecoration: 'none', color:'black'}}>
 						<div className={style.card} key={e._id}>
 						<h1 key={e._id}>{e.name}</h1>
 						<img src={e.imageUrl} alt="" />
