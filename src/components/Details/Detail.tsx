@@ -19,9 +19,11 @@ function Detail() {
 
     return (
         <div className={style.colorOne}>
+            <div className={style.buton}>
             <Link to={'/'}>
                 <button>Back</button>
             </Link>
+            </div>
 
             <div className={style.blur}>
                <div>

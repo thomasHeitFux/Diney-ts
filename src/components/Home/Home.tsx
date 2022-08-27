@@ -21,14 +21,18 @@ import { Link } from 'react-router-dom';
 
 	return (
 		<div>
-			<button onClick={fetchUsers}>FETCH CHARACTERS!</button>
+			<nav>
+				<img src="https://assets.stickpng.com/images/58428d79a6515b1e0ad75ab2.png" alt="" height={100} />
+			</nav>
+			<div className={style.buttons}>
 			{num>1&&<button onClick={()=>setNum(num-1)}>Prev</button>}
 			{num<149&&<button onClick={()=>setNum(num+1)}>Next</button>}
+			</div>
 		<section className={style.container}>
 			{characters?characters.map((e:Character)=>{
 			
 				return(
-						<Link to={`/detail/${e._id}`}>
+						<Link to={`/detail/${e._id}`}  style={{ textDecoration: 'none', color:'black'}}>
 						<div className={style.card} key={e._id}>
 						<h1 key={e._id}>{e.name}</h1>
 						<img src={e.imageUrl} alt="" />
@@ -37,7 +41,11 @@ import { Link } from 'react-router-dom';
 				) 
 			})
 			:(<h1>sory</h1>)}
-		</section></div>
+		</section>
+		<div className={style.buttons}>
+			{num>1&&<button onClick={()=>setNum(num-1)}>Prev</button>}
+			{num<149&&<button onClick={()=>setNum(num+1)}>Next</button>}
+			</div></div>
 	);
 }
 
