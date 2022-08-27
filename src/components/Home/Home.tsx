@@ -5,6 +5,7 @@ import { StoreState } from '../../reducer';
 import style from '../Home/Home.module.css'
 import { Character } from '../../interfaces';
 import { Link } from 'react-router-dom';
+import logo from '../../imgs/dslog.png'
 
   function Home() {
 	const characters = useSelector((state:StoreState)=>state.characters);
@@ -22,7 +23,7 @@ import { Link } from 'react-router-dom';
 	return (
 		<div>
 			<nav>
-				<img src="https://assets.stickpng.com/images/58428d79a6515b1e0ad75ab2.png" alt="" height={100} />
+				<img src={logo} alt="" height={100} />
 			</nav>
 			<div className={style.buttons}>
 			{num>1&&<button onClick={()=>setNum(num-1)}>Prev</button>}
