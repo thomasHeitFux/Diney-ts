@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
 import { usersReducer } from './users';
-import { Character } from '../actions';
+import { Character } from '../interfaces';
+import { userIdReducer } from './userId';
 
 export interface StoreState {
 	characters: Character[];
+	detail: Character;
 }
 
 export const reducers =
-	combineReducers<StoreState>({characters: usersReducer});
+	combineReducers({
+		characters: usersReducer,
+		detail: userIdReducer
+	});

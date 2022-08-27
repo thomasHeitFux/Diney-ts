@@ -1,36 +1,20 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { ActionTypes } from './types';
-const url = 'https://api.disneyapi.dev/characters?page=3';
+import { Datum, Character } from '../interfaces';
+const url = 'https://api.disneyapi.dev/characters/';
 
-export interface Datum {
-  data:       Character[];
-  count:      number;
-  totalPages: number;
-  nextPage:   string;
-}
-
-
-
-export interface Character {
-  films:           string[];
-  shortFilms:      string[];
-  tvShows:         string[];
-  videoGames:      string[];
-  parkAttractions: string[];
-  allies:          any[];
-  enemies:         any[];
-  _id:             number;
-  name:            string;
-  imageUrl:        string;
-  url:             string;
-}
 
 export interface FetchUsersAction {
     type: ActionTypes.fetchUsers;
     payload: Character[]
   }
   
+export interface FetchUserId{
+  type: ActionTypes.fetchUserId;
+  payload: Character
+}
+
   export const fetchUsers = () => {
     return async (dispatch:  Dispatch) => {
       const response = await axios.get<Datum>(url); 
@@ -41,3 +25,25 @@ export interface FetchUsersAction {
       })
     };
   };
+
+  export const fetchUserId = (id:string | undefined)=>{
+    return async (dispatch:  Dispatch) => {
+      const response = await axios.get<Character>(url+id); 
+
+      dispatch<FetchUserId>({
+        type: ActionTypes.fetchUserId,
+        payload:response.data
+      })
+    };
+  }
+
+  export const fetchPage= (page:number)=>{
+    return async (dispatch:  Dispatch) => {
+      const response = await axios.get<Datum>(`${url}?page=${page}`); 
+      const res = response.data.data
+      dispatch<FetchUsersAction>({
+        type: ActionTypes.fetchUsers,
+        payload:res
+      })
+    };
+  }
