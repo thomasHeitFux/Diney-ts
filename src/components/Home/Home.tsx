@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useSelector,useDispatch } from 'react-redux';
-import {  fetchPage, fetchUsers } from '../../actions';
+import {  fetchPage, fetchUsers, numberPage } from '../../actions';
 import { StoreState } from '../../reducer';
 import style from '../Home/Home.module.css'
 import { Character } from '../../interfaces';
@@ -9,14 +9,17 @@ import logo from '../../imgs/dslog.png'
 
   function Home() {
 	const characters = useSelector((state:StoreState)=>state.characters);
+	const page = useSelector((state:StoreState)=>state.page);
 	const dispatch = useDispatch()
-	const [num,setNum] =useState<number>(1);
+	const [num,setNum] =useState<number>(page);
 	
 	useEffect(() => {
+		dispatch<any>(numberPage(num))
 		dispatch<any>(fetchUsers())
 	}, []);
 
 	useEffect(() => {
+		dispatch<any>(numberPage(num))
 		dispatch<any>(fetchPage(num))
 	}, [num]);
 
@@ -27,6 +30,7 @@ import logo from '../../imgs/dslog.png'
 			</nav>
 			<div className={style.buttons}>
 			{num>1&&<button onClick={()=>setNum(num-1)}>Prev</button>}
+			<h3>{page}</h3>
 			{num<149&&<button onClick={()=>setNum(num+1)}>Next</button>}
 			</div>
 		<section className={style.container}>

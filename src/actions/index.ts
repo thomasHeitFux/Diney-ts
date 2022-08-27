@@ -4,6 +4,10 @@ import { ActionTypes } from './types';
 import { Datum, Character } from '../interfaces';
 const url = 'https://api.disneyapi.dev/characters/';
 
+export interface NumberPage{
+  type: ActionTypes.numberPage;
+  payload: number|undefined
+}
 
 export interface FetchUsersAction {
     type: ActionTypes.fetchUsers;
@@ -47,3 +51,12 @@ export interface FetchUserId{
       })
     };
   }
+
+  export const numberPage = (page:number|undefined) => {
+    return async (dispatch:  Dispatch) => {
+      dispatch<NumberPage>({
+        type: ActionTypes.numberPage,
+        payload:page
+      })
+    };
+  };
