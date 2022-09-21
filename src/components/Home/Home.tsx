@@ -39,8 +39,8 @@ import logo from '../../imgs/dslog.png'
 				return(
 						<Link to={`/detail/${e._id}`} key={e._id} style={{ textDecoration: 'none', color:'black'}}>
 						<div className={style.card} key={e._id}>
-						<h1 key={e._id}>{e.name}</h1>
 						<img src={e.imageUrl} alt="" />
+						<h1 className={style.name} key={e._id}>{e.name}</h1>
 						</div>
 						</Link>
 				) 
