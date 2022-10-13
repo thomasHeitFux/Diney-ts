@@ -2,5 +2,7 @@ export enum ActionTypes {
     fetchUsers,
     fetchUserId,
     fetchPage,
-    numberPage
+    numberPage,
+    emptyDetail,
+    searchChar
   }

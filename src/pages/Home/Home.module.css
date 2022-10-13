@@ -1,5 +1,5 @@
 body{
-    background-color: #17202A;
+    background-color: #bacae9;
 }
 .container{
     /* margin-top: 50px; */
@@ -18,8 +18,8 @@ body{
     justify-content: space-between;
     width: 200px;
     height: 320px;
-    border:solid 3px rgba(100, 100, 100, 0.6);
-    background: #273746;
+    border:solid 1px rgba(100, 100, 100, 0.6);
+    background: #27639b;
     color: #fff;
     border-radius: 8px;
     transition: 0.9s;
@@ -34,7 +34,7 @@ body{
     margin: 10px;
 }
 .card:hover{
-    border: 3px solid rgba(255, 255, 255, 0.842);
+    border: 1px solid rgba(255, 255, 255, 0.842);
 }
 .buttons{
     margin: 10px;
