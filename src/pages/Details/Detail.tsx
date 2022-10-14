@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { emptyDetail, fetchUserId } from '../../actions';
+import SearchBar from '../../components/SearchBar';
 import { Character } from '../../interfaces';
 import { StoreState } from '../../reducer';
 import style from '../Details/Detail.module.css'
@@ -20,11 +21,19 @@ function Detail() {
     const character: Character = useSelector((state: StoreState) => state.detail);
 
     return (
-        <div className={style.colorOne}>
-            
+        <div>
 
-            <div className={style.blur}>
-                <div>
+        <SearchBar/>
+        <div className='d-flex m-3 gap-3'>
+            <div className={style.buton}>
+                
+            <Link to={'/'}>
+                    <button onClick={handlerBack}>Back</button>
+                </Link>
+            </div>
+
+            <div className="card shadow-lg p-5 mb-5 rounded bg-transparent flex-fill">
+                <div className='d-flex flex-column justify-content-center align-items-center'>
                 <div>
                     <img src={character.imageUrl} alt="" />
                 </div>
@@ -41,12 +50,7 @@ function Detail() {
                 </div>
                
             </div>
-            <div className={style.buton}>
-                
-            <Link to={'/'}>
-                    <button onClick={handlerBack}>Back</button>
-                </Link>
-            </div>
+        </div>
         </div>
     )
 }

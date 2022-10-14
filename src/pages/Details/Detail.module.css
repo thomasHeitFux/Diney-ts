@@ -7,7 +7,6 @@
 .colorOne {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
     margin: 20px;
 }
 li{
@@ -15,7 +14,6 @@ li{
     list-style: none;
 }
 .blur {
-     /* height: 50vh; */
     width: 50vw;
     display: flex;
     justify-content: space-around;
