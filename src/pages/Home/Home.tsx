@@ -39,7 +39,7 @@ function Home() {
 
 					return (
 						<Link to={`/detail/${e._id}`} key={e._id} style={{ textDecoration: 'none', color: 'black' }}>
-							<div className="card shadow  mb-5  rounded bg-transparent" style={{ width: 258, height: 400 }} key={e._id}>
+							<div className="card shadow p-4 mb-5 text-light rounded bg-dark" style={{ width: 258, height: 400 }} key={e._id}>
 								<img src={e.imageUrl} className="card-img-top" style={{ height: 250 }} />
 								<div className="card-body">
 									<p className="card-text"><h4 className={style.name} key={e._id}>{e.name}</h4></p>
